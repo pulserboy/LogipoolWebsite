@@ -1,0 +1,217 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- Add Font Awesome CSS link here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+    <!-- Add your custom CSS styles here -->
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-image: url('path/to/your/background-image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            
+           
+
+        }
+        .container {
+            position: relative;
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: -1;
+        }
+        .contact-info {
+            padding: 20px;
+        }
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-info li {
+            margin-bottom: 10px;
+        }
+        .social-icons {
+            display: inline-block;
+            margin-right: 10px;
+            
+            
+        }
+        .social-icons a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+            margin: 10px;
+            
+            font-size: 30px;
+        }
+        .social-icons a:hover {
+            color: #007bff;
+        }
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-top: 20px;
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* height: 100%; */
+            height: 350px;
+            border: 0;
+        }
+        .contact-form {
+            margin-top: 20px;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s ease-in-out;
+            margin-right: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+        span{
+            margin-left: 50px;
+            
+        }
+        .copyrights{
+            
+            margin-left: 110px;
+            /* background-color: rgba(247, 248, 249, 1);
+            border: 1px solid rgba(242, 242, 242, 1);
+            display: block;
+            font-size: .9rem;
+            margin: 2rem 0;
+            padding: 1rem 1.5rem;
+            white-space: pre-wrap;
+            word-break: break-all; */
+            
+        }
+        /* section pre {
+            background-color: rgba(247, 248, 249, 1);
+            border: 1px solid rgba(242, 242, 242, 1);
+            display: block;
+            font-size: .9rem;
+            margin: 2rem 0;
+            padding: 1rem 1.5rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        section code {
+            display: block;
+        } */
+        .ex{
+            margin-left: 68px;
+        }
+    
+        
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Contact Details</h2>
+                <div class="contact-info">
+                    <ul class="list-unstyled">
+                        <li><i class="fa-solid fa-location-dot"></i><!--<strong>Address:</strong>--> <span> Logipool Infotech, Office no 201, 2nd floor, behind </span></li>
+                        <li><span class="ex"> McDonald's, Warje, Pune, Maharashtra 411058</span></li>
+                        <li><i class="fa-solid fa-phone"></i><!--<strong>Phone:</strong>--><span> +91 788 788 5052</span></li>
+                        <li><i class="fa-solid fa-envelope"></i><!--<strong>Email:</strong>--> <span>info@logipool.org</span></li>
+                        <li><i class="fa-solid fa-globe"></i><!--<strong>Website:</strong>--><span>https://logipool.org/ </span>  </li>
+                    </ul> 
+                    <ul>   
+                        <li class="social-icons">
+                            <a href="https://www.facebook.com/logipool/" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.twitter.com/logipoolinfotech" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/logipool_infotech/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/logipool-info-tech/?originalSubdomain=in" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Contact Us</h2>
+                
+                <form class="contact-form" [formGroup]="nForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input [class.is-invalid] = "nForm.get('username')?.invalid" type="text" class="form-control" id="name" formControlName="name" placeholder="Your Name" required>
+                        <small [class.d-none]="nForm.get('username')?.valid" class="text-danger"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input [class.is-invalid] = "nForm.get('email')?.invalid" type="email" class="form-control" id="email" placeholder="Your Email" required name="email" formControlName="email" ngModel email="true">
+                        <small [class.d-none]="nForm.get('email')?.valid" class="text-danger">Email is required in valid format(example@abc.com)</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-submit">Log In</button>
+                        <button type="reset" class="btn btn-danger">Reset</button>
+                    </div>
+                </form>
+
+                
+
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h2>Find Us</h2>
+                <!-- Full-width map -->
+                <div class="map-container">
+                    
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15135.666271467107!2d73.7963724!3d18.487438!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf7b4e714c35%3A0x77901ea0ac6a3421!2sLogipool%20Infotech!5e0!3m2!1sen!2sin!4v1691477933082!5m2!1sen!2sin" frameborder="0"  style="border:0;" allowfullscreen=""  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="copyrights">
+
+            <pre>&copy;<code> 2023 copyrights rajshri ma'am and students.</code> </pre>
+    
+        </div>
+    </footer>
+    <!-- Add Bootstrap JS and any additional scripts here -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
